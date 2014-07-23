@@ -7,9 +7,9 @@ Gem::Specification.new do |spec|
   spec.version       = '0.1.0'
   spec.authors       = ["Anthony Smith"]
   spec.email         = ["anthony@sticksnleaves.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Validate image height and width for Paperclip}
+  spec.summary       = %q{Validate them dimensions!}
+  spec.homepage      = "https://github.com/anthonator/paperclip-dimension-validator"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
