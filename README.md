@@ -1,6 +1,6 @@
-# Paperclip::Dimension::Validator
+# paperclip-dimension-validator
 
-TODO: Write a gem description
+Validate them dimensions!
 
 ## Installation
 
@@ -18,7 +18,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This gem introduces the ```dimensions``` validator for Paperclip's
+```validates_attachment```. ```dimensions``` accepts a hash of ```height``` and
+``` width``` integer pixel values.
+
+**Example**
+```ruby
+class Image < ActiveRecord::Base
+  has_attached_file :image
+
+  validates_attachment :image, dimensions: { height: 30, width: 30 }
+end
+```
 
 ## Contributing
 
