@@ -25,10 +25,47 @@ This gem introduces the ```dimensions``` validator for Paperclip's
 **Example**
 ```ruby
 class Image < ActiveRecord::Base
-  has_attached_file :image
+  has_attached_file :avatar
 
-  validates_attachment :image, dimensions: { height: 30, width: 30 }
+  validates_attachment :avatar, dimensions: { height: 30, width: 30 }
 end
+```
+
+## Testing
+
+paperclip-dimension-validator includes rspec-compatible matchers for testing.
+
+**Note** In order to use these matchers make sure to include either [chunky_png](https://github.com/wvanbergen/chunky_png) or
+[oily_png](https://github.com/wvanbergen/oily_png) as a dependency in your Gemfile.
+
+**Gemfile**
+
+```ruby
+group :test do
+  gem 'chunky_png'
+end
+```
+
+**RSpec**
+
+In spec_helper.rb, you'll need to require the matchers:
+
+```ruby
+require 'paperclip/matchers/validate_attachment_dimesions_matcher'
+```
+
+And include the paperclip matchers module:
+
+```ruby
+RSpec.configure do |config|
+  config.include Paperclip::Shoulda::Matchers
+end
+```
+
+**Example**
+
+```ruby
+it { should validate_attachment_dimensions(:avatar).height(30).width(30) }
 ```
 
 ## Contributing
