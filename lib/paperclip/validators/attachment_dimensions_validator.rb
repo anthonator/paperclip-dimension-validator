@@ -10,12 +10,18 @@ module Paperclip
       end
 
       def validate_each(record, attribute, value)
-        dimensions = Paperclip::Geometry.from_file(value.queued_for_write[:original].path)
+        return unless value.queued_for_write[:original]
 
-        [:height, :width].each do |dimension|
-          if options[dimension] && dimensions.send(dimension) != options[dimension].to_f
-            record.errors.add(attribute.to_sym, :dimension, dimension_type: dimension.to_s, dimension: options[dimension], actual_dimension: dimensions.send(dimension).to_i)
+        begin
+          dimensions = Paperclip::Geometry.from_file(value.queued_for_write[:original].path)
+
+          [:height, :width].each do |dimension|
+            if options[dimension] && dimensions.send(dimension) != options[dimension].to_f
+              record.errors.add(attribute.to_sym, :dimension, dimension_type: dimension.to_s, dimension: options[dimension], actual_dimension: dimensions.send(dimension).to_i)
+            end
           end
+        rescue Paperclip::Errors::NotIdentifiedByImageMagickError
+          Paperclip.log("cannot validate dimensions on #{attribute}")
         end
       end
     end
