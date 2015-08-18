@@ -1,0 +1,4 @@
+ru:
+  errors:
+    messages:
+      dimension: "должно иметь%{dimension_type} %{dimension}px, но сейчас %{actual_dimension}px"

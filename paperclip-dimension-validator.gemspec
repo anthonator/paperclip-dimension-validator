@@ -20,5 +20,15 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'paperclip',    '>= 4.0.0'
 
   spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency('shoulda')
+  spec.add_development_dependency('rspec')
+  spec.add_development_dependency('activerecord', '>= 3.2.0')
+  spec.add_development_dependency('sqlite3')
+  spec.add_development_dependency('chunky_png')
+  spec.add_development_dependency('pry')
+  spec.add_development_dependency('pry-stack_explorer')
+  spec.add_development_dependency('pry-debugger')
+  spec.add_development_dependency('awesome_print')
+  spec.add_development_dependency('rs_russian')
+  spec.add_development_dependency('rails')
 end

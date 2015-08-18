@@ -27,9 +27,7 @@ module Paperclip
         end
 
         def matches?(subject)
-          @subject = subject
-          @subject = @subject.new if @subject.class == Class
-          shorter_than_height? && taller_than_height? && smaller_than_width? && larger_than_width?
+          validate_invalid_sizes(subject) && validate_valid_sizes(subject)
         end
 
         def failure_message
@@ -52,32 +50,45 @@ module Paperclip
         end
 
         protected
-        def validation_with_height(height)
-          @subject.send(@attachment_name).assign(generate_png(height, @width))
-          @subject.valid?
-          @subject.errors[@attachment_name].include?("must have a height of #{@height}px was #{height}px")
+        def validate_invalid_sizes subject
+          shorter_than_height?(subject) && taller_than_height?(subject) && smaller_than_width?(subject) && larger_than_width?(subject)
         end
 
-        def validation_with_width(width)
-          @subject.send(@attachment_name).assign(generate_png(@height, width))
-          @subject.valid?
-          @subject.errors[@attachment_name].include?("must have a width of #{@width}px was #{width}px")
+        def validate_valid_sizes subject
+          subject = create_subject subject
+          !validation_with_height(@height, subject) || !validation_with_width(@width, subject)
         end
 
-        def shorter_than_height?
-          @height.nil? || validation_with_height(@height - 1)
+        def validation_with_height(height, subject)
+          subject.send(@attachment_name).assign(generate_png(height, @width))
+          subject.valid?
+          subject.errors.added? @attachment_name, :dimension, dimension_type: :height, dimension: @height, actual_dimension: height
         end
 
-        def taller_than_height?
-          @height.nil? || validation_with_height(@height + 1)
+        def validation_with_width(width, subject)
+          subject.send(@attachment_name).assign(generate_png(@height, width))
+          subject.valid?
+          subject.errors.added? @attachment_name, :dimension, dimension_type: :width, dimension: @width, actual_dimension: width
         end
 
-        def smaller_than_width?
-          @width.nil? || validation_with_width(@width - 1)
+        def shorter_than_height? subject
+          @height.nil? || validation_with_height(@height - 1, create_subject(subject))
         end
 
-        def larger_than_width?
-          @width.nil? || validation_with_width(@width + 1)
+        def taller_than_height? subject
+          @height.nil? || validation_with_height(@height + 1, create_subject(subject))
+        end
+
+        def smaller_than_width? subject
+          @width.nil? || validation_with_width(@width - 1, create_subject(subject))
+        end
+
+        def larger_than_width? subject
+          @width.nil? || validation_with_width(@width + 1, create_subject(subject))
+        end
+
+        def create_subject subject_klass
+          subject_klass.new if subject_klass.class == Class
         end
 
         def generate_png(height, width)
