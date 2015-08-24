@@ -1,0 +1,50 @@
+# Logfile created on 2015-08-18 22:09:39 +0300 by logger.rb/44203
+D, [2015-08-18T22:09:39.957087 #8534] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mCREATE TABLE "dummies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "other" varchar, "avatar_file_name" varchar, "avatar_content_type" varchar, "avatar_file_size" integer, "avatar_updated_at" datetime, "avatar_fingerprint" varchar) [0m
+I, [2015-08-18T22:09:39.994736 #8534]  INFO -- : Command :: file -b --mime '/tmp/a2d156b8c96ef7d3a52da49ac8a1d88e20150818-8534-18x47z0.png'
+I, [2015-08-18T22:09:39.999369 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/a2d156b8c96ef7d3a52da49ac8a1d88e20150818-8534-1q2d16j.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.026881 #8534]  INFO -- : Command :: file -b --mime '/tmp/a2d156b8c96ef7d3a52da49ac8a1d88e20150818-8534-164v4eh.png'
+I, [2015-08-18T22:09:40.031801 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/a2d156b8c96ef7d3a52da49ac8a1d88e20150818-8534-1q2d16j.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.049236 #8534]  INFO -- : Command :: file -b --mime '/tmp/0f4d794f9608b87c2a3aa2a51b3909e920150818-8534-17ms4dd.png'
+I, [2015-08-18T22:09:40.054344 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/0f4d794f9608b87c2a3aa2a51b3909e920150818-8534-1ttr2xf.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.064764 #8534]  INFO -- : Command :: file -b --mime '/tmp/0f4d794f9608b87c2a3aa2a51b3909e920150818-8534-1krb395.png'
+I, [2015-08-18T22:09:40.069758 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/0f4d794f9608b87c2a3aa2a51b3909e920150818-8534-1ttr2xf.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.089523 #8534]  INFO -- : Command :: file -b --mime '/tmp/4405a4e93cb8bad8a26dd4108e4950bc20150818-8534-npks.png'
+I, [2015-08-18T22:09:40.096736 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/4405a4e93cb8bad8a26dd4108e4950bc20150818-8534-11pr71e.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.106804 #8534]  INFO -- : Command :: file -b --mime '/tmp/4405a4e93cb8bad8a26dd4108e4950bc20150818-8534-1ichfl9.png'
+I, [2015-08-18T22:09:40.111832 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/4405a4e93cb8bad8a26dd4108e4950bc20150818-8534-11pr71e.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.127749 #8534]  INFO -- : Command :: file -b --mime '/tmp/771f7baafd1f7a4018f65ccc0fcc287620150818-8534-1gahp9e.png'
+I, [2015-08-18T22:09:40.132693 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/771f7baafd1f7a4018f65ccc0fcc287620150818-8534-jegg1o.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.142593 #8534]  INFO -- : Command :: file -b --mime '/tmp/771f7baafd1f7a4018f65ccc0fcc287620150818-8534-97qmkx.png'
+I, [2015-08-18T22:09:40.147691 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/771f7baafd1f7a4018f65ccc0fcc287620150818-8534-jegg1o.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.163467 #8534]  INFO -- : Command :: file -b --mime '/tmp/47587a8d2d0402fb538a97fe4f9b804f20150818-8534-q9eyp6.png'
+I, [2015-08-18T22:09:40.168516 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/47587a8d2d0402fb538a97fe4f9b804f20150818-8534-o2ehez.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.178642 #8534]  INFO -- : Command :: file -b --mime '/tmp/47587a8d2d0402fb538a97fe4f9b804f20150818-8534-1vd1b5e.png'
+I, [2015-08-18T22:09:40.185631 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/47587a8d2d0402fb538a97fe4f9b804f20150818-8534-o2ehez.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.204927 #8534]  INFO -- : Command :: file -b --mime '/tmp/b78c0fb17432273bb56c9b28efbad95820150818-8534-1esemie.png'
+I, [2015-08-18T22:09:40.209883 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b78c0fb17432273bb56c9b28efbad95820150818-8534-1i9tkie.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.219681 #8534]  INFO -- : Command :: file -b --mime '/tmp/b78c0fb17432273bb56c9b28efbad95820150818-8534-1eoraho.png'
+I, [2015-08-18T22:09:40.224570 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b78c0fb17432273bb56c9b28efbad95820150818-8534-1i9tkie.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.237828 #8534]  INFO -- : Command :: file -b --mime '/tmp/522c9f0442f9f6e7eeae21add7fc8b3e20150818-8534-q0zvmu.png'
+I, [2015-08-18T22:09:40.242622 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/522c9f0442f9f6e7eeae21add7fc8b3e20150818-8534-7wqtx2.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.253286 #8534]  INFO -- : Command :: file -b --mime '/tmp/522c9f0442f9f6e7eeae21add7fc8b3e20150818-8534-fwfl9f.png'
+I, [2015-08-18T22:09:40.258204 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/522c9f0442f9f6e7eeae21add7fc8b3e20150818-8534-7wqtx2.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.287583 #8534]  INFO -- : Command :: file -b --mime '/tmp/800c33ffbc9b0442f32dc4fc893da60920150818-8534-1fm1xom.png'
+I, [2015-08-18T22:09:40.296511 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/800c33ffbc9b0442f32dc4fc893da60920150818-8534-1qk3s7j.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.306937 #8534]  INFO -- : Command :: file -b --mime '/tmp/800c33ffbc9b0442f32dc4fc893da60920150818-8534-3196vg.png'
+I, [2015-08-18T22:09:40.312830 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/800c33ffbc9b0442f32dc4fc893da60920150818-8534-1qk3s7j.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.328394 #8534]  INFO -- : Command :: file -b --mime '/tmp/1198860442e6a464fec6c5c3abaf0e7a20150818-8534-u6dqfw.png'
+I, [2015-08-18T22:09:40.333314 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/1198860442e6a464fec6c5c3abaf0e7a20150818-8534-1gyv44d.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.343481 #8534]  INFO -- : Command :: file -b --mime '/tmp/1198860442e6a464fec6c5c3abaf0e7a20150818-8534-9neqm8.png'
+I, [2015-08-18T22:09:40.348144 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/1198860442e6a464fec6c5c3abaf0e7a20150818-8534-1gyv44d.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.363837 #8534]  INFO -- : Command :: file -b --mime '/tmp/82b1380d8054226ccaa1aaaff2bbb4c920150818-8534-1jznxp9.png'
+I, [2015-08-18T22:09:40.368863 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/82b1380d8054226ccaa1aaaff2bbb4c920150818-8534-1m8jtih.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.379245 #8534]  INFO -- : Command :: file -b --mime '/tmp/82b1380d8054226ccaa1aaaff2bbb4c920150818-8534-tdebz9.png'
+I, [2015-08-18T22:09:40.386927 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/82b1380d8054226ccaa1aaaff2bbb4c920150818-8534-1m8jtih.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.405361 #8534]  INFO -- : Command :: file -b --mime '/tmp/2ef39820445100f6def05ab73b865d6220150818-8534-1xh31ce.png'
+I, [2015-08-18T22:09:40.410354 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/2ef39820445100f6def05ab73b865d6220150818-8534-1f5n6p9.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.420562 #8534]  INFO -- : Command :: file -b --mime '/tmp/2ef39820445100f6def05ab73b865d6220150818-8534-1u4pbfx.png'
+I, [2015-08-18T22:09:40.425384 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/2ef39820445100f6def05ab73b865d6220150818-8534-1f5n6p9.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.441363 #8534]  INFO -- : Command :: file -b --mime '/tmp/ed0b666b255d5046bbce00381045635920150818-8534-1kqwhmo.png'
+I, [2015-08-18T22:09:40.446621 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/ed0b666b255d5046bbce00381045635920150818-8534-vdbnd0.png[0]' 2>/dev/null
+I, [2015-08-18T22:09:40.456830 #8534]  INFO -- : Command :: file -b --mime '/tmp/ed0b666b255d5046bbce00381045635920150818-8534-j4y4jd.png'
+I, [2015-08-18T22:09:40.462043 #8534]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/ed0b666b255d5046bbce00381045635920150818-8534-vdbnd0.png[0]' 2>/dev/null
