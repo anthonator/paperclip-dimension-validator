@@ -1,4 +1,7 @@
 en:
+  dimension_types:
+    width: "Width"
+    height: "Height"
   errors:
     messages:
       dimension: "must have a %{dimension_type} of %{dimension}px was %{actual_dimension}px"

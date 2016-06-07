@@ -1,4 +1,5 @@
 require 'tempfile'
+require 'i18n'
 
 module Paperclip
   module Shoulda
@@ -10,7 +11,7 @@ module Paperclip
       class ValidateAttachmentDimensionsMatcher
         def initialize(attachment_name)
           unless defined?(ChunkyPNG)
-            puts 'WARNING: Add chunky_png or oily_png to your Gemfile to use paperclip dimension matchers'
+            puts "WARNING: Add chunky_png or oily_png to your Gemfile to use paperclip dimension matchers"
           end
 
           @attachment_name = attachment_name
@@ -52,39 +53,72 @@ module Paperclip
         end
 
         protected
+
         def validation_with_height(height)
           @subject.send(@attachment_name).assign(generate_png(height, @width))
-          @subject.valid?
-          @subject.errors[@attachment_name].include?("must have a height of #{@height}px was #{height}px")
+          error_added?('height', @height, height)
         end
 
         def validation_with_width(width)
           @subject.send(@attachment_name).assign(generate_png(@height, width))
-          @subject.valid?
-          @subject.errors[@attachment_name].include?("must have a width of #{@width}px was #{width}px")
+          error_added?('width', @width, width)
         end
 
         def shorter_than_height?
-          @height.nil? || validation_with_height(@height - 1)
+          return if @height.nil?
+          height = @height.respond_to?(:first) ? @height.first : @height
+          validation_with_height(height - 1)
         end
 
         def taller_than_height?
-          @height.nil? || validation_with_height(@height + 1)
+          return if @height.nil?
+          height = @height.respond_to?(:last) ? @height.last : @height
+          validation_with_height(height + 1)
         end
 
         def smaller_than_width?
-          @width.nil? || validation_with_width(@width - 1)
+          return if @width.nil?
+          width = @width.respond_to?(:first) ? @width.first : @width
+          validation_with_width(width - 1)
         end
 
         def larger_than_width?
-          @width.nil? || validation_with_width(@width + 1)
+          return if @width.nil?
+          width = @width.respond_to?(:last) ? @width.last : @width
+          validation_with_width(width + 1)
         end
 
         def generate_png(height, width)
-          file = Tempfile.new([Time.now.to_i.to_s, '.png'])
+          file = Tempfile.new("#{Time.now.to_i}.png")
           file.binmode
-          ChunkyPNG::Image.new(width || 1, height || 1, ChunkyPNG::Color('black')).save(file.path)
+          save_image(
+            file.path,
+            width.try(:first) || width,
+            height.try(:first) || height
+          )
           file
+        end
+
+        def save_image(file_path, width, height)
+          image = ChunkyPNG::Image.new(
+            width || 1,
+            height || 1,
+            ChunkyPNG::Color('black')
+          )
+
+          image.save(file_path)
+        end
+
+        def error_added?(dimension_type, dimension, actual_dimension)
+          @subject.valid?
+
+          @subject.errors.added?(
+            @attachment_name,
+            :dimension,
+            dimension_type:   I18n.t("dimension_types.#{dimension_type}"),
+            dimension:        instance_variable_get("@#{dimension_type}"),
+            actual_dimension: actual_dimension
+          )
         end
       end
     end
