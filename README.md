@@ -31,6 +31,18 @@ class Image < ActiveRecord::Base
 end
 ```
 
+```dimensions``` also accepts a hash of ```height``` and
+``` width``` ranges.
+
+**Example with ranges**
+```ruby
+class Image < ActiveRecord::Base
+  has_attached_file :avatar
+
+  validates_attachment :avatar, dimensions: { height: 30..100, width: 30..150 }
+end
+```
+
 ## Testing
 
 paperclip-dimension-validator includes rspec-compatible matchers for testing.
@@ -66,6 +78,12 @@ end
 
 ```ruby
 it { should validate_attachment_dimensions(:avatar).height(30).width(30) }
+```
+
+**Example with ranges**
+
+```ruby
+it { should validate_attachment_dimensions(:avatar).height(30..100).width(30..150) }
 ```
 
 ## Contributing
